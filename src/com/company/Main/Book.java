@@ -27,9 +27,4 @@ public class Book {
 
     public int getPages() { return this.pages; }
 
-    /*    public void printInfo(){
-        System.out.println("Book name: " + this.name);
-        System.out.println("Book author: " + this.author);
-        System.out.println("Pages quantity: " + this.pages);
-    }*/
 }
