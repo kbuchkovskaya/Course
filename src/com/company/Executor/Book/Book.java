@@ -1,9 +1,10 @@
-package com.company.Main;
+package com.company.Executor.Book;
 
-public class Book {
-    public String name = "default";
-    public String author = "default";
-    public int pages = 0;
+public abstract class Book {
+
+    private String name = "default";
+    private String author = "default";
+    private int pages = 0;
 
     public Book(){
 
@@ -26,5 +27,7 @@ public class Book {
     public void setPages(int pages) { this.pages = pages; }
 
     public int getPages() { return this.pages; }
+
+    public abstract void read();
 
 }

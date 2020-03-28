@@ -1,15 +1,15 @@
-package com.company.Main;
+package com.company.Executor.Epos;
 
 public class Fairytale extends Epos {
 
-    public String fairytale = "default";
+    private String fairytale = "default";
 
     public Fairytale(){
 
     }
 
-    public Fairytale(String name, String author, int pages, String eposType, String fairytale){
-        super(name, author, pages, eposType);
+    public Fairytale(String name, String author, int pages, String epos, String fairytale){
+        super(name, author, pages, epos);
         this.fairytale = fairytale;
     }
 

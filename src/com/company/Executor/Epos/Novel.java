@@ -1,15 +1,15 @@
-package com.company.Main;
+package com.company.Executor.Epos;
 
 public class Novel extends Epos {
 
-    public String novel = "default";
+    private String novel = "default";
 
     public Novel(){
 
     }
 
-    public Novel(String name, String author, int pages, String eposType, String novel){
-        super(name, author, pages, eposType);
+    public Novel(String name, String author, int pages, String epos, String novel){
+        super(name, author, pages, epos);
         this.novel = novel;
     }
 

@@ -1,14 +1,15 @@
-package com.company.Main;
+package com.company.Executor.Lyrics;
 
 public class Sonnet extends Lyrics {
-    String sonnet = "sonnet";
+
+    private String sonnet = "sonnet";
 
     public Sonnet(){
 
     }
 
-    public Sonnet(String name, String author, int pages, String lyricsType, String sonnet){
-        super(name, author, pages, lyricsType);
+    public Sonnet(String name, String author, int pages, String lyrics, String sonnet){
+        super(name, author, pages, lyrics);
         this.sonnet = sonnet;
     }
 

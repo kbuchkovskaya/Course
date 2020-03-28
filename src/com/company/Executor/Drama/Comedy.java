@@ -1,15 +1,15 @@
-package com.company.Main;
+package com.company.Executor.Drama;
 
 public class Comedy extends Drama {
 
-    public String comedy = "Comedy";
+    private String comedy = "Comedy";
 
     public Comedy(){
 
     }
 
-    public Comedy(String name, String author, int pages, String dramaType, String comedy){
-        super(name, author, pages, dramaType);
+    public Comedy(String name, String author, int pages, String drama, String comedy){
+        super(name, author, pages, drama);
         this.comedy = comedy;
     }
 
