@@ -1,6 +1,8 @@
 package com.company.Executor.Lyrics;
 
-public class Romance extends Lyrics {
+import com.company.Executor.Book.IFiction;
+
+public class Romance extends Lyrics implements IFiction {
 
     private String romance = "Romance";
 
@@ -17,4 +19,10 @@ public class Romance extends Lyrics {
 
     public String getRomance() { return this.romance = romance; }
 
+    @Override
+    public String getInfoFiction() {
+        String pagesStr = String.valueOf(getPages());
+        String infoFiction = "Romance: " + getName() + ", " + getAuthor() + ", " + pagesStr + " pages, " + getLyrics();
+        return infoFiction;
+    }
 }

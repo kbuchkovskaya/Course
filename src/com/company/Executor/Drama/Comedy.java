@@ -1,6 +1,8 @@
 package com.company.Executor.Drama;
 
-public class Comedy extends Drama {
+import com.company.Executor.Book.IFiction;
+
+public class Comedy extends Drama implements IFiction {
 
     private String comedy = "Comedy";
 
@@ -18,5 +20,10 @@ public class Comedy extends Drama {
     public String getComedy() { return this.comedy = comedy; }
 
 
-
+    @Override
+    public String getInfoFiction() {
+        String pagesStr = String.valueOf(getPages());
+        String infoFiction = "Comedy: " + getName() + ", " + getAuthor() + ", " + pagesStr + " pages, " + getDrama();
+        return infoFiction;
+    }
 }

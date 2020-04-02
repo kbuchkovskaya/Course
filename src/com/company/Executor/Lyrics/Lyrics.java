@@ -1,9 +1,8 @@
 package com.company.Executor.Lyrics;
 
 import com.company.Executor.Book.Book;
-import com.company.Executor.Book.IKindOfLiterature;
 
-public class Lyrics extends Book implements IKindOfLiterature {
+public class Lyrics extends Book {
 
     private String lyrics = "default";
 
@@ -24,4 +23,6 @@ public class Lyrics extends Book implements IKindOfLiterature {
     public void read() {
 
     }
+
+
 }

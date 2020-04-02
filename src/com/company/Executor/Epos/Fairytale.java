@@ -1,6 +1,8 @@
 package com.company.Executor.Epos;
 
-public class Fairytale extends Epos {
+import com.company.Executor.Book.IFiction;
+
+public class Fairytale extends Epos implements IFiction {
 
     private String fairytale = "default";
 
@@ -16,4 +18,11 @@ public class Fairytale extends Epos {
     public void setFairytale(String fairytale){ this.fairytale = fairytale; }
 
     public String getFairytale() { return this.fairytale; }
+
+    @Override
+    public String getInfoFiction() {
+        String pagesStr = String.valueOf(getPages());
+        String infoFiction = "Fairytail: " + getName() + ", " + getAuthor() + ", " + pagesStr + " " + "pages, " + getEpos();
+        return infoFiction;
+    }
 }

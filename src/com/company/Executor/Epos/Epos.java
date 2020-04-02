@@ -1,9 +1,8 @@
 package com.company.Executor.Epos;
 
 import com.company.Executor.Book.Book;
-import com.company.Executor.Book.IKindOfLiterature;
 
-public class Epos extends Book implements IKindOfLiterature {
+public class Epos extends Book {
 
     private String epos = "default";
 
@@ -24,4 +23,5 @@ public class Epos extends Book implements IKindOfLiterature {
     public void read() {
 
     }
+
 }

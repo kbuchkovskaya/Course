@@ -1,9 +1,8 @@
 package com.company.Executor.Drama;
 
 import com.company.Executor.Book.Book;
-import com.company.Executor.Book.IKindOfLiterature;
 
-public class Drama extends Book implements IKindOfLiterature {
+public class Drama extends Book  {
 
     private String drama = "default ";
 
@@ -24,4 +23,5 @@ public class Drama extends Book implements IKindOfLiterature {
     public void read() {
 
     }
+
 }
