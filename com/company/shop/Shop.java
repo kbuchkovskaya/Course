@@ -1,0 +1,47 @@
+package com.company.shop;
+
+import com.company.book.*;
+
+import java.time.LocalDate;
+
+public abstract class Shop implements Payment {
+
+    protected String name;
+    protected Book book;
+
+    public Shop() {
+    }
+
+    public Shop(String name, Book book) {
+        this.name = name;
+        this.book = book;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Book getBook() {
+        return this.book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    final String bookInfo(){
+        return "Information about book:" ;
+    }
+
+/*    public void booksQuantity(String bookInfo){
+        System.out.println("Shop have ");
+    }
+
+    public int booksQuantity(int bookQuantity){
+        sout
+    }*/
+}
