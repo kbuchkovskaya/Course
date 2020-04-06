@@ -37,11 +37,4 @@ public abstract class Shop implements Payment {
         return "Information about book:" ;
     }
 
-/*    public void booksQuantity(String bookInfo){
-        System.out.println("Shop have ");
-    }
-
-    public int booksQuantity(int bookQuantity){
-        sout
-    }*/
 }
