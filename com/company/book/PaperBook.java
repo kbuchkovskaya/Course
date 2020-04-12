@@ -2,6 +2,11 @@ package com.company.book;
 
 import java.time.LocalDate;
 
+/**
+ * An <code>PaperBook</code> object represent
+ * book subtype - paper books
+ */
+
 public class PaperBook extends Book {
 
     private CoverType cover;
@@ -23,9 +28,7 @@ public class PaperBook extends Book {
         return this.cover;
     }
 
-    public void setCover(CoverType cover) {
-        this.cover = cover;
-    }
+    public void setCover(CoverType cover) { this.cover = cover; }
 
     public Accessories getAccessories() {
         return this.accessories;
@@ -56,6 +59,7 @@ public class PaperBook extends Book {
                 ", genre=" + genre +
                 '}';
     }
+
     public void soldBooks(String bookPlural){
         System.out.print("Sold " + bookPlural + ": ");
     }

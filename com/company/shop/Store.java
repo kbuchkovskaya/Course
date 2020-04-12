@@ -1,9 +1,11 @@
 package com.company.shop;
 
 import com.company.book.Book;
-import com.company.book.EBook;
-import com.company.book.PaperBook;
 
+/**
+ * A <code>Store</code> object represent
+ * shop type - store
+ */
 public final class Store extends Shop {
 
     private String address;

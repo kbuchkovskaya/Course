@@ -2,8 +2,9 @@ package com.company.shop;
 
 import com.company.book.*;
 
-import java.time.LocalDate;
-
+/**
+ * Shop class include common information about shops
+ */
 public abstract class Shop implements Payment {
 
     protected String name;

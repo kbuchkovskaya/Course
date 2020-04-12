@@ -2,8 +2,15 @@ package com.company.book;
 
 import java.time.LocalDate;
 
+/**
+ * An <code>EBook</code> object represent
+ * book subtype - e-books
+ */
 public class EBook extends Book implements Price{
 
+    /**
+     * Discount for all e-books
+     */
     final int DISCOUNT_EBOOK = 20;
 
     private double memory;
@@ -59,6 +66,10 @@ public class EBook extends Book implements Price{
                 '}';
     }
 
+    /**
+     * Count e-book price
+     * @return price with discount
+     */
     @Override
     public double priceWithDiscount() {
         price = price - (price * DISCOUNT_EBOOK * 0.01);

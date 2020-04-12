@@ -1,7 +1,18 @@
 package com.company.book;
 
+/**
+ * Book's genre
+ */
 public enum Genre {
 
-    COMEDY, TRAGEDY, NOVEL, ROMAN, SONNET, FAIRYTAIL
+    COMEDY("Comedy") , TRAGEDY("Tragedy"), NOVEL("Novel"), ROMAN("Roman"), SONNET("Sonnet"), FAIRYTAIL("Fairytail");
+
+    private String genre;
+
+    Genre(String genre) {
+        this.genre = genre;
+    }
 
 }
+
+

@@ -1,6 +1,13 @@
 package com.company.book;
 
+/**
+ * Paper book size
+ */
 public enum Size {
 
-    SMALL, MEDIUM, LARGE
+    SMALL("Small"), MEDIUM("Medium"), LARGE("Large");
+
+    private String size;
+
+    Size(String size) { this.size = size; }
 }
