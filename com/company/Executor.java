@@ -17,6 +17,10 @@ public class Executor {
         EBook eBook = new EBook();
         AudioBook audioBook = new AudioBook();
 
+        Set<String> badWords = new HashSet<>();
+        badWords.add("fuck");
+        badWords.add("wtf");
+        badWords.add("shit");
 
         System.out.println("What do you wand to do? 1 - Add book; 2- Delete book; 3 - Books list; 4 - Exit: ");
         int choiseAddDeleteList = scanner.nextInt();
