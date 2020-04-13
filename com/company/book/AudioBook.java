@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * An <code>AudioBook</code> object represent
  * book subtype - audio books
  */
-public class AudioBook extends Book implements Price {
+public class AudioBook extends Book implements Price{
 
     /**
      * Discount for all audio books

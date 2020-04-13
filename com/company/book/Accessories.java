@@ -4,7 +4,7 @@ package com.company.book;
  * Bookmark for paper books
  * @author Kate Buchkovska
  */
-public class Accessories {
+public class Accessories{
 
     private int bookmark;
 

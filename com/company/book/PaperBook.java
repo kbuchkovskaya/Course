@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * book subtype - paper books
  */
 
-public class PaperBook extends Book {
+public class PaperBook extends Book{
 
     private CoverType cover;
     private Accessories accessories;

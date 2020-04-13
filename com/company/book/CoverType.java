@@ -3,7 +3,7 @@ package com.company.book;
 /**
  * Paper book cover type
  */
-public enum CoverType {
+public enum CoverType{
 
     SOFT("Soft"), TOUGH("Tough");
 

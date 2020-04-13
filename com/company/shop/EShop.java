@@ -6,7 +6,7 @@ import com.company.book.Book;
  * A <code>EShop</code> object represent
  * shop type - E-shop
  */
-public final class EShop extends Shop {
+public final class EShop extends Shop{
 
     private String webSite;
 

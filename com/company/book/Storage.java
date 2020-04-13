@@ -6,7 +6,7 @@ import java.util.*;
  * Storage for lists of paper book, e-book and audio book
  * and for Map
  */
-public class Storage {
+public class Storage{
 
     private List<PaperBook> listPaperBooks;
     private List<EBook> listEBooks;

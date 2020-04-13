@@ -3,7 +3,7 @@ package com.company.book;
 /**
  * Book's genre
  */
-public enum Genre {
+public enum Genre{
 
     COMEDY("Comedy") , TRAGEDY("Tragedy"), NOVEL("Novel"), ROMAN("Roman"), SONNET("Sonnet"), FAIRYTAIL("Fairytail");
 

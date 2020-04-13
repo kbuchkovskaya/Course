@@ -3,7 +3,7 @@ package com.company.book;
 /**
  * E-book format
  */
-public enum EBookType {
+public enum EBookType{
 
     PDF("Pdf"), DOC("Doc"), DJV("Djv");
 

@@ -3,7 +3,7 @@ package com.company.book;
 /**
  * Audio book language
  */
-public enum BookLanguage {
+public enum BookLanguage{
 
     UKR ("Ukrainian"), ENG("English"), RUS("Russian"), IT("Italian");
 

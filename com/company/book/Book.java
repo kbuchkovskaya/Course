@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * Book class include common information about book
  */
-public abstract class Book {
+public abstract class Book{
 
     protected String name;
     protected String author;

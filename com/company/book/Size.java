@@ -3,7 +3,7 @@ package com.company.book;
 /**
  * Paper book size
  */
-public enum Size {
+public enum Size{
 
     SMALL("Small"), MEDIUM("Medium"), LARGE("Large");
 
