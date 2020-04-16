@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * An <code>EBook</code> object represent
  * book subtype - e-books
  */
-public class EBook extends Book implements Price{
+public class EBook extends Book implements Price {
 
     /**
      * Discount for all e-books
@@ -17,7 +17,7 @@ public class EBook extends Book implements Price{
     private String webSite;
     private EBookType eType;
 
-    public EBook(){
+    public EBook() {
 
     }
 
@@ -68,6 +68,7 @@ public class EBook extends Book implements Price{
 
     /**
      * Count e-book price
+     *
      * @return price with discount
      */
     @Override

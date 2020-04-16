@@ -1,12 +1,13 @@
 package com.company.book;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * An <code>AudioBook</code> object represent
  * book subtype - audio books
  */
-public class AudioBook extends Book implements Price{
+public class AudioBook extends Book implements Price {
 
     /**
      * Discount for all audio books
@@ -16,7 +17,7 @@ public class AudioBook extends Book implements Price{
     private BookLanguage language;
     private double memory;
 
-    public AudioBook(){
+    public AudioBook() {
 
     }
 
@@ -58,11 +59,12 @@ public class AudioBook extends Book implements Price{
 
     /**
      * Count audio book price
+     *
      * @return price with discount
      */
     @Override
     public double priceWithDiscount() {
-            price = price - (price * DISCOUNT_AUDIO_BOOK * 0.01);
+        price = price - (price * DISCOUNT_AUDIO_BOOK * 0.01);
         return price;
     }
 }

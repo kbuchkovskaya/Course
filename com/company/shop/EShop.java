@@ -6,7 +6,7 @@ import com.company.book.Book;
  * A <code>EShop</code> object represent
  * shop type - E-shop
  */
-public final class EShop extends Shop{
+public final class EShop extends Shop implements Payment {
 
     private String webSite;
 
@@ -37,8 +37,5 @@ public final class EShop extends Shop{
                 '}';
     }
 
-    @Override
-    public void pay() {
-        System.out.println("Payment method: by card");
-    }
+
 }

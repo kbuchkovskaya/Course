@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * book subtype - paper books
  */
 
-public class PaperBook extends Book{
+public class PaperBook extends Book {
 
     private CoverType cover;
     private Accessories accessories;
@@ -28,7 +28,9 @@ public class PaperBook extends Book{
         return this.cover;
     }
 
-    public void setCover(CoverType cover) { this.cover = cover; }
+    public void setCover(CoverType cover) {
+        this.cover = cover;
+    }
 
     public Accessories getAccessories() {
         return this.accessories;
@@ -60,11 +62,11 @@ public class PaperBook extends Book{
                 '}';
     }
 
-    public void soldBooks(String bookPlural){
+    public void soldBooks(String bookPlural) {
         System.out.print("Sold " + bookPlural + ": ");
     }
 
-    public void soldBooks(int soldBooksQuantity){
+    public void soldBooks(int soldBooksQuantity) {
         System.out.println(soldBooksQuantity);
     }
 

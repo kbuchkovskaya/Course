@@ -6,65 +6,50 @@ import java.util.*;
  * Storage for lists of paper book, e-book and audio book
  * and for Map
  */
-public class Storage{
+public class Storage {
 
-    private List<PaperBook> listPaperBooks;
-    private List<EBook> listEBooks;
-    private List<AudioBook> listAudioBooks;
-    private Map<String, Integer> bookMap;
+    private Map<String, String> bookMap;
+    private Set<String> badWordsSet;
+    private List<? super Book> listOfBooks;
+    private Set <String> badWords = new HashSet<>();
 
-    public Storage(){
-        listPaperBooks = new ArrayList<>();
-        listEBooks = new LinkedList<>();
-        listAudioBooks = new ArrayList<>();
+    public Storage() {
         bookMap = new HashMap<>();
+        badWordsSet = new HashSet<>();
+        listOfBooks = new ArrayList<>();
     }
 
-    public void setListPaperBooks(List<PaperBook> listPaperBooks) {
-        this.listPaperBooks = listPaperBooks;
+    public Storage( List<? super Book> addListOfBooks) {
+        this.listOfBooks = addListOfBooks;
     }
 
-    public List<PaperBook> getListPaperBooks() { return this.listPaperBooks; }
-
-    public void setListEBooks(List<EBook> listEBooks) {
-        this.listEBooks = listEBooks;
+    public List<? super Book> getListOfBooks() {
+        return listOfBooks;
     }
 
-    public List<EBook> getListEBooks() {
-        return this.listEBooks;
+    public void setListOfBooks(List<? super Book> listOfBooks) {
+        this.listOfBooks = listOfBooks;
     }
 
-    public void setListAudioBooks(List<AudioBook> listAudioBooks) {
-        this.listAudioBooks = listAudioBooks;
+    public void setBookMap(Map<String, String> bookMap) {
+        this.bookMap = bookMap;
     }
 
-    public List<AudioBook> getListAudioBooks() {
-        return this.listAudioBooks;
+    public Map<String, String> getBookMap() {
+        return bookMap;
     }
 
-    public void setPaperBook (PaperBook paperBook){
-        listPaperBooks.add(paperBook);
+    public void addPaperBookInfo(PaperBook paperBook) {
+        this.listOfBooks.add(paperBook);
     }
 
-    public void removePaperBook(int index){
-        listPaperBooks.remove(index);
+    public void addEBook(EBook eBook) { this.listOfBooks.add(eBook); }
+
+    public void addAudioBook(AudioBook audioBook) { this.listOfBooks.add(audioBook); }
+
+    public void getBooksInfo(Map<String, String> bookMap){
+        for (Map.Entry entry : bookMap.entrySet()) {
+            System.out.println("Key" + entry.getKey() + "Value" + entry.getValue());
+        }
     }
-
-    public void setEBook (EBook eBook){
-        listEBooks.add(eBook);
-    }
-
-    public void removeEBook(int index){
-        listEBooks.remove(index);
-    }
-
-    public void setAudioBook (AudioBook audioBook){
-        listAudioBooks.add(audioBook);
-    }
-
-    public void removeAudioBook (int index){ listAudioBooks.remove(index); }
-
-    public Map<String, Integer> getBookMap() { return bookMap; }
-
-    public void setBookMap(Map<String, Integer> bookMap) { this.bookMap = bookMap; }
 }

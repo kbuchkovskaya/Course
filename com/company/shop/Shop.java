@@ -5,7 +5,7 @@ import com.company.book.*;
 /**
  * Shop class include common information about shops
  */
-public abstract class Shop implements Payment{
+public abstract class Shop implements Payment {
 
     protected String name;
     protected Book book;
@@ -34,8 +34,8 @@ public abstract class Shop implements Payment{
         this.book = book;
     }
 
-    final String bookInfo(){
-        return "Information about book:" ;
+    final String bookInfo() {
+        return "Information about book:";
     }
 
 }

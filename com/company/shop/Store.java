@@ -6,7 +6,7 @@ import com.company.book.Book;
  * A <code>Store</code> object represent
  * shop type - store
  */
-public final class Store extends Shop{
+public final class Store extends Shop implements Payment{
 
     private String address;
 
@@ -37,11 +37,6 @@ public final class Store extends Shop{
                 '}';
     }
 
-    @Override
-    public void pay() {
-        System.out.println("Payment method: with cash");
-    }
-
     public static class Department {
 
         String name;
@@ -54,9 +49,13 @@ public final class Store extends Shop{
             this.name = name;
         }
 
-        public String getName() { return this.name; }
+        public String getName() {
+            return this.name;
+        }
 
-        public void setName(String name) { this.name = name; }
+        public void setName(String name) {
+            this.name = name;
+        }
 
         @Override
         public String toString() {
