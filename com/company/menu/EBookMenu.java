@@ -25,7 +25,7 @@ public class EBookMenu {
         System.out.println("Name: ");
         String eBookName = scanner.next();
         eBook.setName(eBookName);
-        storage.getBookMap().put(eBook.getName(), "222");
+        //storage.getBookMap().put(eBook.getName(), "222");
 
         System.out.println("Author: ");
         String eAuthor = scanner.next();
