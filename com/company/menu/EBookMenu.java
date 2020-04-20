@@ -4,6 +4,7 @@ import com.company.book.EBook;
 import com.company.book.EBookType;
 import com.company.book.Genre;
 import com.company.book.Storage;
+import com.company.exeption.EmptyListExeption;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,11 +13,11 @@ import java.util.Scanner;
 
 public class EBookMenu {
 
+    private static final String E_BOOK_TYPE = "E-book";
+
     Storage storage = new Storage();
 
     Scanner scanner = new Scanner(System.in);
-
-    List<EBook> listEBook = new ArrayList<>();
 
     public void enterEBookInfo() {
 
@@ -25,7 +26,7 @@ public class EBookMenu {
         System.out.println("Name: ");
         String eBookName = scanner.next();
         eBook.setName(eBookName);
-        storage.getBookMap().put(eBook.getName(), "222");
+        storage.fillBookMap(eBookName, E_BOOK_TYPE);
 
         System.out.println("Author: ");
         String eAuthor = scanner.next();
@@ -56,17 +57,18 @@ public class EBookMenu {
         eBook.seteType(EBookType.valueOf(eBookType));
 
         storage.addEBook(eBook);
-        listEBook.add(eBook);
     }
 
     public void deleteEBook(String eBookName) {
-        if(!this.listEBook.isEmpty()){
-            listEBook.removeIf(eBook -> eBook.getName().equals(eBookName));
+        if (!storage.getBookMap().isEmpty()) {
+            storage.removeBookMap(eBookName);
         }
     }
 
-    public void listEBooks() {
-        if (!this.listEBook.isEmpty())
-            System.out.println("E-books: " + "\n" + listEBook.toString());
+    public void listEBooks() throws EmptyListExeption {
+        if (!storage.getBookMap().isEmpty()) {
+            storage.printBookMapInfo();
+        }
+        throw new EmptyListExeption();
     }
 }

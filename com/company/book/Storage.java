@@ -9,17 +9,16 @@ import java.util.*;
 public class Storage {
 
     private Map<String, String> bookMap;
-    private Set<String> badWordsSet;
-    private List<? super Book> listOfBooks;
-    private Set <String> badWords = new HashSet<>();
+    private List<? super Book> listOfBooks = new ArrayList<>();
+    ;
+    private Set<String> badWords = new HashSet<>();
 
     public Storage() {
         bookMap = new HashMap<>();
-        badWordsSet = new HashSet<>();
-        listOfBooks = new ArrayList<>();
+
     }
 
-    public Storage( List<? super Book> addListOfBooks) {
+    public Storage(List<? super Book> addListOfBooks) {
         this.listOfBooks = addListOfBooks;
     }
 
@@ -35,6 +34,10 @@ public class Storage {
         this.bookMap = bookMap;
     }
 
+    public Set<String> getBadWords() {
+        return badWords;
+    }
+
     public Map<String, String> getBookMap() {
         return bookMap;
     }
@@ -43,13 +46,23 @@ public class Storage {
         this.listOfBooks.add(paperBook);
     }
 
-    public void addEBook(EBook eBook) { this.listOfBooks.add(eBook); }
+    public void addEBook(EBook eBook) {
+        this.listOfBooks.add(eBook);
+    }
 
-    public void addAudioBook(AudioBook audioBook) { this.listOfBooks.add(audioBook); }
+    public void addAudioBook(AudioBook audioBook) {
+        this.listOfBooks.add(audioBook);
+    }
 
-    public void getBooksInfo(Map<String, String> bookMap){
-        for (Map.Entry entry : bookMap.entrySet()) {
-            System.out.println("Key" + entry.getKey() + "Value" + entry.getValue());
-        }
+    public void fillBookMap(String bookName, String type) {
+        bookMap.put(bookName, type);
+    }
+
+    public void removeBookMap(String bookName) {
+        bookMap.keySet().removeIf(key -> key.equals(bookName));
+    }
+
+    public void printBookMapInfo() {
+        bookMap.forEach((nameOfBook, type) -> System.out.println("Book type: " + type + "    " + "Book name: " + nameOfBook));
     }
 }

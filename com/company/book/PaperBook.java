@@ -10,17 +10,15 @@ import java.time.LocalDate;
 public class PaperBook extends Book {
 
     private CoverType cover;
-    private Accessories accessories;
     private Size size;
 
     public PaperBook() {
 
     }
 
-    public PaperBook(String name, String author, LocalDate publicationYear, double price, Genre genre, CoverType cover, Accessories accessories, Size size) {
+    public PaperBook(String name, String author, LocalDate publicationYear, double price, Genre genre, CoverType cover, Size size) {
         super(name, author, publicationYear, price, genre);
         this.cover = cover;
-        this.accessories = accessories;
         this.size = size;
     }
 
@@ -30,14 +28,6 @@ public class PaperBook extends Book {
 
     public void setCover(CoverType cover) {
         this.cover = cover;
-    }
-
-    public Accessories getAccessories() {
-        return this.accessories;
-    }
-
-    public void setAccessories(Accessories accessories) {
-        this.accessories = accessories;
     }
 
     public Size getSize() {
@@ -50,16 +40,13 @@ public class PaperBook extends Book {
 
     @Override
     public String toString() {
-        return "PaperBook{" +
-                "cover=" + cover +
-                ", accessories=" + accessories +
+        return "cover=" + cover +
                 ", size=" + size +
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", publicationYear=" + publicationYear +
                 ", price=" + price +
-                ", genre=" + genre +
-                '}';
+                ", genre=" + genre;
     }
 
     public void soldBooks(String bookPlural) {

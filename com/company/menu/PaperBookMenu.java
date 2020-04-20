@@ -1,20 +1,19 @@
 package com.company.menu;
 
 import com.company.book.*;
+import com.company.exeption.EmptyListExeption;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.*;
 
 public class PaperBookMenu {
 
+    private static final String PAPER_BOOK_TYPE = "Paper book";
+
     Storage storage = new Storage();
 
     Scanner scanner = new Scanner(System.in);
-
-    List<PaperBook> listPaperBook = new ArrayList<>();
 
     public void enterPaperBookInfo() {
 
@@ -23,7 +22,7 @@ public class PaperBookMenu {
         System.out.println("Name: ");
         String ppName = scanner.next();
         paperBook.setName(ppName);
-        storage.getBookMap().put(paperBook.getName(), "111");
+        storage.fillBookMap(ppName, PAPER_BOOK_TYPE);
 
         System.out.println("Author: ");
         String ppAuthor = scanner.next();
@@ -45,27 +44,22 @@ public class PaperBookMenu {
         String ppCoverType = scanner.next();
         paperBook.setCover(CoverType.valueOf(ppCoverType));
 
-        System.out.println("Bookmark: ");
-        String ppAccess = scanner.next();
-        paperBook.setAccessories(new Accessories(1));
-
         System.out.println("Choose one of the size...");
         String ppSize = scanner.next();
         paperBook.setSize(Size.valueOf(ppSize));
 
         storage.addPaperBookInfo(paperBook);
-        listPaperBook.add(paperBook);
     }
 
     public void deletePaperBook(String bookName) {
-        if (!this.listPaperBook.isEmpty()) {
-            this.listPaperBook.removeIf(paperBook -> paperBook.getName().equals(bookName));
+        if (!storage.getBookMap().isEmpty()) {
+            storage.removeBookMap(bookName);
         }
-
     }
 
-    public void listPaperBook() {
-        if (!this.listPaperBook.isEmpty())
-            System.out.println("Paper books: " + "\n" + listPaperBook.toString());
+    public void listPaperBook() throws EmptyListExeption {
+        if (!storage.getBookMap().isEmpty()) {
+            storage.printBookMapInfo();
+        } else throw new EmptyListExeption();
     }
 }
