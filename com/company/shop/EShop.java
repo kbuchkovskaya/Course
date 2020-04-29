@@ -36,6 +36,4 @@ public final class EShop extends Shop implements Payment {
                 ", book=" + book +
                 '}';
     }
-
-
 }

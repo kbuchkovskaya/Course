@@ -13,8 +13,6 @@ public class MainMenu {
 
     Scanner scanner = new Scanner(System.in);
 
-    //Storage storage = new Storage();
-
     PaperBookMenu paperBookMenu = new PaperBookMenu();
     EBookMenu eBookMenu = new EBookMenu();
     AudioBookMenu audioBookMenu = new AudioBookMenu();
