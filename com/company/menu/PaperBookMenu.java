@@ -5,11 +5,10 @@ import com.company.exeption.EmptyListExeption;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-import java.util.*;
 
 public class PaperBookMenu {
 
-    private static final String PAPER_BOOK_TYPE = "Paper book";
+    public static final String PAPER_BOOK_TYPE = "Paper book";
 
     Storage storage = new Storage();
 
@@ -33,8 +32,8 @@ public class PaperBookMenu {
         paperBook.setPublicationYear(LocalDate.parse(ppPubYear));
 
         System.out.println("Price: ");
-        String ppPrice = String.valueOf(scanner.nextDouble());
-        paperBook.setPrice(Double.parseDouble(ppPrice));
+        float ppPrice = scanner.nextFloat();
+        paperBook.setPrice(ppPrice);
 
         System.out.println("Choose one of the genre...");
         String ppGenre = scanner.next();
@@ -49,17 +48,23 @@ public class PaperBookMenu {
         paperBook.setSize(Size.valueOf(ppSize));
 
         storage.addPaperBookInfo(paperBook);
+        Storage.increaseBookQuantity();
     }
 
-    public void deletePaperBook(String bookName) {
+    public void deletePaperBook() {
+        System.out.println("Enter book name which you want to delete: ");
+        String bookName = scanner.next();
         if (!storage.getBookMap().isEmpty()) {
             storage.removeBookMap(bookName);
+            Storage.decreaseBookQuantity();
+            System.out.println("Book deleted successfully!");
         }
     }
 
     public void listPaperBook() throws EmptyListExeption {
-        if (!storage.getBookMap().isEmpty()) {
-            storage.printBookMapInfo();
-        } else throw new EmptyListExeption();
-    }
+            if (!storage.getBookMap().isEmpty()) {
+                storage.printBookMapInfo();
+            } else throw new EmptyListExeption();
+        }
+
 }

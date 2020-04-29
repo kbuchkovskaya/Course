@@ -7,8 +7,6 @@ import com.company.book.Storage;
 import com.company.exeption.EmptyListExeption;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class EBookMenu {
@@ -37,8 +35,8 @@ public class EBookMenu {
         eBook.setPublicationYear(LocalDate.parse(ePubYear));
 
         System.out.println("Price: ");
-        String ePrice = String.valueOf(scanner.nextDouble());
-        eBook.setPrice(Double.parseDouble(ePrice));
+        float ePrice = scanner.nextFloat();
+        eBook.setPrice(ePrice);
 
         System.out.println("Choose one of the genre...");
         String eGenre = scanner.next();
@@ -57,18 +55,22 @@ public class EBookMenu {
         eBook.seteType(EBookType.valueOf(eBookType));
 
         storage.addEBook(eBook);
+        Storage.increaseBookQuantity();
     }
 
-    public void deleteEBook(String eBookName) {
+    public void deleteEBook() {
+        System.out.println("Enter book name which you want to delete: ");
+        String eBookName = scanner.next();
         if (!storage.getBookMap().isEmpty()) {
             storage.removeBookMap(eBookName);
+            Storage.decreaseBookQuantity();
+            System.out.println("Book deleted successfully!");
         }
     }
 
     public void listEBooks() throws EmptyListExeption {
         if (!storage.getBookMap().isEmpty()) {
             storage.printBookMapInfo();
-        }
-        throw new EmptyListExeption();
+        } else throw new EmptyListExeption();
     }
 }

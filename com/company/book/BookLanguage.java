@@ -1,5 +1,8 @@
 package com.company.book;
 
+import java.util.EnumSet;
+import java.util.Set;
+
 /**
  * Audio book language
  */
@@ -7,7 +10,7 @@ public enum BookLanguage {
 
     UKR("Ukrainian"), ENG("English"), RUS("Russian"), IT("Italian");
 
-    private String bookLanguage;
+    String bookLanguage;
 
     BookLanguage(String bookLanguage) {
         this.bookLanguage = bookLanguage;

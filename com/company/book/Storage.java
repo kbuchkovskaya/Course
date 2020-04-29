@@ -8,18 +8,14 @@ import java.util.*;
  */
 public class Storage {
 
+    public static int bookCounter;
+
     private Map<String, String> bookMap;
-    private List<? super Book> listOfBooks = new ArrayList<>();
-    ;
-    private Set<String> badWords = new HashSet<>();
+    private List<? super Book> listOfBooks;
 
     public Storage() {
         bookMap = new HashMap<>();
-
-    }
-
-    public Storage(List<? super Book> addListOfBooks) {
-        this.listOfBooks = addListOfBooks;
+        listOfBooks = new ArrayList<>();
     }
 
     public List<? super Book> getListOfBooks() {
@@ -32,10 +28,6 @@ public class Storage {
 
     public void setBookMap(Map<String, String> bookMap) {
         this.bookMap = bookMap;
-    }
-
-    public Set<String> getBadWords() {
-        return badWords;
     }
 
     public Map<String, String> getBookMap() {
@@ -54,6 +46,14 @@ public class Storage {
         this.listOfBooks.add(audioBook);
     }
 
+    public static void increaseBookQuantity(){
+        bookCounter++;
+    }
+
+    public static void decreaseBookQuantity(){
+        bookCounter--;
+    }
+
     public void fillBookMap(String bookName, String type) {
         bookMap.put(bookName, type);
     }
@@ -65,4 +65,6 @@ public class Storage {
     public void printBookMapInfo() {
         bookMap.forEach((nameOfBook, type) -> System.out.println("Book type: " + type + "    " + "Book name: " + nameOfBook));
     }
+
 }
+

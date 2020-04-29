@@ -21,7 +21,7 @@ public class AudioBook extends Book implements Price {
 
     }
 
-    public AudioBook(String name, String author, LocalDate publicationYear, double price, Genre genre, BookLanguage language, double memory) {
+    public AudioBook(String name, String author, LocalDate publicationYear, float price, Genre genre, BookLanguage language, double memory) {
         super(name, author, publicationYear, price, genre);
         this.language = language;
         this.memory = memory;
@@ -43,28 +43,14 @@ public class AudioBook extends Book implements Price {
         this.memory = memory;
     }
 
-
-    @Override
-    public String toString() {
-        return "AudioBook{" +
-                "language=" + language +
-                ", memory=" + memory +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", price=" + priceWithDiscount() +
-                ", genre=" + genre +
-                '}';
-    }
-
     /**
      * Count audio book price
      *
      * @return price with discount
      */
     @Override
-    public double priceWithDiscount() {
-        price = price - (price * DISCOUNT_AUDIO_BOOK * 0.01);
-        return price;
+    public float priceWithDiscount(float priceWithoutDiscount) {
+        priceWithoutDiscount = (float) (price - (price * DISCOUNT_AUDIO_BOOK * 0.01));
+        return (float) price;
     }
 }

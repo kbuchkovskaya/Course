@@ -5,5 +5,5 @@ package com.company.book;
  */
 public interface Price {
 
-    double priceWithDiscount();
+    float priceWithDiscount(float price);
 }

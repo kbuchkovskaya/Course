@@ -16,7 +16,7 @@ public class PaperBook extends Book {
 
     }
 
-    public PaperBook(String name, String author, LocalDate publicationYear, double price, Genre genre, CoverType cover, Size size) {
+    public PaperBook(String name, String author, LocalDate publicationYear, float price, Genre genre, CoverType cover, Size size) {
         super(name, author, publicationYear, price, genre);
         this.cover = cover;
         this.size = size;
@@ -36,17 +36,6 @@ public class PaperBook extends Book {
 
     public void setSize(Size size) {
         this.size = size;
-    }
-
-    @Override
-    public String toString() {
-        return "cover=" + cover +
-                ", size=" + size +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", price=" + price +
-                ", genre=" + genre;
     }
 
     public void soldBooks(String bookPlural) {

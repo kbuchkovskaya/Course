@@ -10,14 +10,14 @@ public abstract class Book {
     protected String name;
     protected String author;
     protected LocalDate publicationYear;
-    protected double price;
+    protected float price;
     public Genre genre;
 
     public Book() {
 
     }
 
-    public Book(String name, String author, LocalDate publicationYear, double price, Genre genre) {
+    public Book(String name, String author, LocalDate publicationYear, float price, Genre genre) {
         this.name = name;
         this.author = author;
         this.publicationYear = publicationYear;
@@ -49,11 +49,11 @@ public abstract class Book {
         this.publicationYear = publicationYear;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return this.price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -63,17 +63,6 @@ public abstract class Book {
 
     public void setGenre(Genre genre) {
         this.genre = genre;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", price=" + price +
-                ", genre=" + genre +
-                '}';
     }
 
 }

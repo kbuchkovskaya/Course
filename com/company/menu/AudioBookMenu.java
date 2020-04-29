@@ -1,15 +1,10 @@
 package com.company.menu;
 
-import com.company.book.AudioBook;
-import com.company.book.BookLanguage;
-import com.company.book.Genre;
-import com.company.book.Storage;
+import com.company.book.*;
 import com.company.exeption.EmptyListExeption;
-import sun.invoke.empty.Empty;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.EnumSet;
 import java.util.Scanner;
 
 public class AudioBookMenu {
@@ -38,8 +33,9 @@ public class AudioBookMenu {
         audioBook.setPublicationYear(LocalDate.parse(aPubYear));
 
         System.out.println("Price: ");
-        String aPrice = String.valueOf(scanner.nextDouble());
-        audioBook.setPrice(Double.parseDouble(aPrice));
+        float aPrice = scanner.nextFloat();
+        audioBook.priceWithDiscount(aPrice);
+        audioBook.setPrice(aPrice);
 
         System.out.println("Choose one of the genre...");
         String aGenre = scanner.next();
@@ -54,18 +50,22 @@ public class AudioBookMenu {
         audioBook.setMemory(Double.parseDouble(aMemory));
 
         storage.addAudioBook(audioBook);
+        Storage.increaseBookQuantity();
     }
 
-    public void deleteAudioBook(String audioBookName) {
+    public void deleteAudioBook() {
+        System.out.println("Enter book name which you want to delete: ");
+        String audioBookName = scanner.next();
         if (!storage.getBookMap().isEmpty()) {
             storage.removeBookMap(audioBookName);
+            Storage.decreaseBookQuantity();
+            System.out.println("Book deleted successfully!");
         }
     }
 
     public void listAudioBooks() throws EmptyListExeption {
         if (!storage.getBookMap().isEmpty()) {
             storage.printBookMapInfo();
-        }
-        throw new EmptyListExeption();
+        } else throw new EmptyListExeption();
     }
 }

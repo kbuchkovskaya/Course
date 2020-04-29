@@ -21,7 +21,7 @@ public class EBook extends Book implements Price {
 
     }
 
-    public EBook(String name, String author, LocalDate publicationYear, double price, Genre genre, double memory, String webSite, EBookType eType) {
+    public EBook(String name, String author, LocalDate publicationYear, float price, Genre genre, double memory, String webSite, EBookType eType) {
         super(name, author, publicationYear, price, genre);
         this.memory = memory;
         this.webSite = webSite;
@@ -44,26 +44,12 @@ public class EBook extends Book implements Price {
         this.webSite = webSite;
     }
 
-    public EBookType geteType() {
+    public EBookType getEType() {
         return this.eType;
     }
 
     public void seteType(EBookType eType) {
         this.eType = eType;
-    }
-
-    @Override
-    public String toString() {
-        return "EBook{" +
-                "memory=" + memory +
-                ", webSite='" + webSite + '\'' +
-                ", eType=" + eType +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", price=" + priceWithDiscount() +
-                ", genre=" + genre +
-                '}';
     }
 
     /**
@@ -72,8 +58,8 @@ public class EBook extends Book implements Price {
      * @return price with discount
      */
     @Override
-    public double priceWithDiscount() {
-        price = price - (price * DISCOUNT_EBOOK * 0.01);
+    public float priceWithDiscount(float priceWithoutDiscount) {
+        priceWithoutDiscount = (float) (price - (price * DISCOUNT_EBOOK * 0.01));
         return price;
     }
 }
