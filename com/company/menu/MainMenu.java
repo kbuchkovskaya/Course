@@ -3,19 +3,30 @@ package com.company.menu;
 import com.company.book.Storage;
 import com.company.exeption.EmptyListExeption;
 import com.company.exeption.MenuExeption;
-import com.company.shop.Store;
+import com.company.utils.RWFromProperties;
+import com.company.utils.ReadingFromFile;
+import com.company.utils.WrittingToFile;
 
-import java.net.StandardProtocolFamily;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu {
+
+    public static final String PATH_FIRST = "C:\\Users\\User\\IdeaProjects\\Shop\\file.txt";
+    public static final String PATH_SECOND = "C:\\Users\\User\\IdeaProjects\\Shop\\file2.txt";
 
     Scanner scanner = new Scanner(System.in);
 
     PaperBookMenu paperBookMenu = new PaperBookMenu();
     EBookMenu eBookMenu = new EBookMenu();
     AudioBookMenu audioBookMenu = new AudioBookMenu();
+
+    Storage storage = new Storage();
+
+    ReadingFromFile readingFromFile = new ReadingFromFile();
+    RWFromProperties rwFromProperties = new RWFromProperties();
+    WrittingToFile writtingToFile = new WrittingToFile();
 
     public void addBook(){
         System.out.println("Which book do you want to add? 1 - Paper book; 2 - E-book; 3 - Audio book; 4 - Exit: ");
@@ -24,13 +35,13 @@ public class MainMenu {
             do{
                 switch (choiseAddBook){
                     case 1:
-                        paperBookMenu.enterPaperBookInfo();
+                        paperBookMenu.enterPaperBookInfo(this.storage);
                         break;
                     case 2:
-                        eBookMenu.enterEBookInfo();
+                        eBookMenu.enterEBookInfo(this.storage);
                         break;
                     case 3:
-                        audioBookMenu.enterAudioBookInfo();
+                        audioBookMenu.enterAudioBookInfo(this.storage);
                         break;
                     default:
                         break;
@@ -51,13 +62,13 @@ public class MainMenu {
             do {
                 switch (choiseDeleteBook) {
                     case 1:
-                        paperBookMenu.deletePaperBook();
+                        paperBookMenu.deletePaperBook(this.storage);
                         break;
                     case 2:
-                        eBookMenu.deleteEBook();
+                        eBookMenu.deleteEBook(this.storage);
                         break;
                     case 3:
-                        audioBookMenu.deleteAudioBook();
+                        audioBookMenu.deleteAudioBook(this.storage);
                         break;
                     default:
                         break;
@@ -71,25 +82,23 @@ public class MainMenu {
         }
     }
 
-    public void listOfBooks() {
-        try {
-            paperBookMenu.listPaperBook();
-        } catch (EmptyListExeption e) {
-            System.out.println(e.getMessage() + "of paper books!");
-        }
-        try {
-            eBookMenu.listEBooks();
-        } catch (EmptyListExeption e) {
-            System.out.println(e.getMessage() + "of e-books!");
-        }
-        try {
-            audioBookMenu.listAudioBooks();
-        } catch (EmptyListExeption e) {
-            System.out.println(e.getMessage() + "of audio books!");
-        }
+    public void booksInfo() throws IOException, EmptyListExeption {
+
+        if (!storage.getBookMap().isEmpty()){
+            System.out.println("List: ");
+            storage.printBookMapInfo();
+        } else throw new EmptyListExeption();
+
+        System.out.println("Properties: ");
+        rwFromProperties.setMapToProperties(PATH_SECOND, storage.getBookMap());
+        rwFromProperties.getMapFromProperties(PATH_FIRST);
+
+        System.out.println("File: ");
+        writtingToFile.writingToFile(PATH_FIRST, storage.getBookMap());
+        readingFromFile.readFromFile(PATH_FIRST);
     }
 
-    public void menu(){
+    public void menu() throws IOException, EmptyListExeption {
         System.out.println("What do you wand to do? 1 - Add book; 2- Delete book; 3 - Books list; 4 - Exit: ");
         int choise = scanner.nextInt();
         do {
@@ -101,9 +110,9 @@ public class MainMenu {
                     deleteBook();
                     break;
                 case 3:
-                    listOfBooks();
+                    booksInfo();
                     System.out.println("================================");
-                    System.out.println("Book's quantity: " + Storage.bookCounter);
+                    System.out.println("Available books: " + Storage.bookCounter);
                     break;
                 case 4:
                     System.exit(0);

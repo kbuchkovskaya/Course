@@ -4,7 +4,6 @@ import com.company.book.EBook;
 import com.company.book.EBookType;
 import com.company.book.Genre;
 import com.company.book.Storage;
-import com.company.exeption.EmptyListExeption;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -13,11 +12,9 @@ public class EBookMenu {
 
     private static final String E_BOOK_TYPE = "E-book";
 
-    Storage storage = new Storage();
-
     Scanner scanner = new Scanner(System.in);
 
-    public void enterEBookInfo() {
+    public void enterEBookInfo(Storage storage)  {
 
         EBook eBook = new EBook();
 
@@ -58,7 +55,7 @@ public class EBookMenu {
         Storage.increaseBookQuantity();
     }
 
-    public void deleteEBook() {
+    public void deleteEBook(Storage storage) {
         System.out.println("Enter book name which you want to delete: ");
         String eBookName = scanner.next();
         if (!storage.getBookMap().isEmpty()) {
@@ -68,9 +65,4 @@ public class EBookMenu {
         }
     }
 
-    public void listEBooks() throws EmptyListExeption {
-        if (!storage.getBookMap().isEmpty()) {
-            storage.printBookMapInfo();
-        } else throw new EmptyListExeption();
-    }
 }

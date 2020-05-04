@@ -1,8 +1,6 @@
 package com.company.menu;
 
 import com.company.book.*;
-import com.company.exeption.EmptyListExeption;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -10,11 +8,9 @@ public class PaperBookMenu {
 
     public static final String PAPER_BOOK_TYPE = "Paper book";
 
-    Storage storage = new Storage();
-
     Scanner scanner = new Scanner(System.in);
 
-    public void enterPaperBookInfo() {
+    public void enterPaperBookInfo(Storage storage)  {
 
         PaperBook paperBook = new PaperBook();
 
@@ -51,7 +47,7 @@ public class PaperBookMenu {
         Storage.increaseBookQuantity();
     }
 
-    public void deletePaperBook() {
+    public void deletePaperBook(Storage storage) {
         System.out.println("Enter book name which you want to delete: ");
         String bookName = scanner.next();
         if (!storage.getBookMap().isEmpty()) {
@@ -60,11 +56,5 @@ public class PaperBookMenu {
             System.out.println("Book deleted successfully!");
         }
     }
-
-    public void listPaperBook() throws EmptyListExeption {
-            if (!storage.getBookMap().isEmpty()) {
-                storage.printBookMapInfo();
-            } else throw new EmptyListExeption();
-        }
 
 }

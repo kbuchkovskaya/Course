@@ -1,21 +1,17 @@
 package com.company.menu;
 
 import com.company.book.*;
-import com.company.exeption.EmptyListExeption;
 
 import java.time.LocalDate;
-import java.util.EnumSet;
 import java.util.Scanner;
 
 public class AudioBookMenu {
 
     private static final String AUDIO_BOOK_TYPE = "Audio book";
 
-    Storage storage = new Storage();
-
     Scanner scanner = new Scanner(System.in);
 
-    public void enterAudioBookInfo() {
+    public void enterAudioBookInfo(Storage storage) {
 
         AudioBook audioBook = new AudioBook();
 
@@ -53,7 +49,7 @@ public class AudioBookMenu {
         Storage.increaseBookQuantity();
     }
 
-    public void deleteAudioBook() {
+    public void deleteAudioBook(Storage storage) {
         System.out.println("Enter book name which you want to delete: ");
         String audioBookName = scanner.next();
         if (!storage.getBookMap().isEmpty()) {
@@ -63,9 +59,4 @@ public class AudioBookMenu {
         }
     }
 
-    public void listAudioBooks() throws EmptyListExeption {
-        if (!storage.getBookMap().isEmpty()) {
-            storage.printBookMapInfo();
-        } else throw new EmptyListExeption();
-    }
 }

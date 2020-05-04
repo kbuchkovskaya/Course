@@ -50,9 +50,7 @@ public class Storage {
         bookCounter++;
     }
 
-    public static void decreaseBookQuantity(){
-        bookCounter--;
-    }
+    public static void decreaseBookQuantity(){ bookCounter--; }
 
     public void fillBookMap(String bookName, String type) {
         bookMap.put(bookName, type);
