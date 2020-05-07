@@ -4,17 +4,12 @@ import com.company.book.Storage;
 import com.company.exeption.EmptyListExeption;
 import com.company.exeption.MenuExeption;
 import com.company.utils.RWFromProperties;
-import com.company.utils.ReadingFromFile;
-import com.company.utils.WrittingToFile;
+import com.company.utils.RWFromFile;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu {
-
-    public static final String PATH_FIRST = "C:\\Users\\User\\IdeaProjects\\Shop\\file.txt";
-    public static final String PATH_SECOND = "C:\\Users\\User\\IdeaProjects\\Shop\\file2.txt";
 
     Scanner scanner = new Scanner(System.in);
 
@@ -24,9 +19,8 @@ public class MainMenu {
 
     Storage storage = new Storage();
 
-    ReadingFromFile readingFromFile = new ReadingFromFile();
+    RWFromFile rwFromFile = new RWFromFile();
     RWFromProperties rwFromProperties = new RWFromProperties();
-    WrittingToFile writtingToFile = new WrittingToFile();
 
     public void addBook(){
         System.out.println("Which book do you want to add? 1 - Paper book; 2 - E-book; 3 - Audio book; 4 - Exit: ");
@@ -82,23 +76,25 @@ public class MainMenu {
         }
     }
 
-    public void booksInfo() throws IOException, EmptyListExeption {
+    public void booksInfo() {
 
-        if (!storage.getBookMap().isEmpty()){
-            System.out.println("List: ");
-            storage.printBookMapInfo();
-        } else throw new EmptyListExeption();
+        try {
+            if (!storage.getBookMap().isEmpty()){
+                System.out.println("List: ");
+                storage.printBookMapInfo();
+            } else throw new EmptyListExeption();
+        } catch (EmptyListExeption e){
+            e.getMessage();
+        }
 
-        System.out.println("Properties: ");
-        rwFromProperties.setMapToProperties(PATH_SECOND, storage.getBookMap());
-        rwFromProperties.getMapFromProperties(PATH_FIRST);
-
-        System.out.println("File: ");
-        writtingToFile.writingToFile(PATH_FIRST, storage.getBookMap());
-        readingFromFile.readFromFile(PATH_FIRST);
+        System.out.println("Reading from file: ");
+        String path = rwFromProperties.getPath();
+        rwFromFile.writingToFile(path, storage.getBookMap());
+        rwFromFile.readFromFile(path);
+        rwFromProperties.setDate();
     }
 
-    public void menu() throws IOException, EmptyListExeption {
+    public void menu() {
         System.out.println("What do you wand to do? 1 - Add book; 2- Delete book; 3 - Books list; 4 - Exit: ");
         int choise = scanner.nextInt();
         do {

@@ -1,0 +1,1 @@
+path = C:\\Users\\User\\IdeaProjects\\Shop\\src\\com\\company\\resources\\MapInfo.txt
